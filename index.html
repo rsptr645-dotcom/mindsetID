@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softly - Digital Wellness</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        app: {
+                            bg: '#FDFCF8',
+                            sage: '#E8EFE8',
+                            lavender: '#EFEDF4',
+                            coral: '#FFB7B2',
+                            dark: '#292524',
+                            muted: '#78716C',
+                            blob1: '#FFE4E1',
+                            blob2: '#E6E6FA'
+                        }
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        reenie: ['Reenie Beanie', 'cursive']
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0,0,0,0.05)',
+                        'float': '0 20px 40px -10px rgba(0,0,0,0.08)'
+                    },
+                    animation: {
+                        'float-blob': 'floatBlob 8s ease-in-out infinite',
+                        'float-blob-reverse': 'floatBlobReverse 9s ease-in-out infinite',
+                        'pulse-soft': 'pulseSoft 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'breathe': 'breathe 4s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        floatBlob: {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '33%': { transform: 'translate(20px, -30px) scale(1.05)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.95)' }
+                        },
+                        floatBlobReverse: {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '33%': { transform: 'translate(-30px, 20px) scale(0.95)' },
+                            '66%': { transform: 'translate(20px, -20px) scale(1.05)' }
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: .7 }
+                        },
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(255, 183, 178, 0.4)' },
+                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 20px rgba(255, 183, 178, 0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #FDFCF8;
+            color: #292524;
+            overflow-x: hidden;
+        }
+
+        section[id] {
+            scroll-margin-top: 120px;
+        }
+
+        /* The Grain Overlay */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.35;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Hide scrollbar for horizontal scroll area but keep functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Reveal on Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accordion transition */
+        .accordion-content {
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="font-outfit antialiased selection:bg-app-coral selection:text-app-dark relative">
+
+    <!-- Global Grain -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-md z-40 bg-white/70 backdrop-blur-[20px] rounded-full px-4 py-3 flex items-center justify-between border border-white/40 shadow-sm">
+        <div class="flex items-center gap-2 cursor-pointer">
+            <div class="w-8 h-8 rounded-full bg-app-coral flex items-center justify-center relative">
+                <div class="w-2.5 h-2.5 rounded-full bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-overlay"></div>
+            </div>
+            <span class="font-medium text-app-dark tracking-tight">softly</span>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-6 text-[14px] text-app-muted font-medium">
+            <a href="#approach" class="hover:text-app-dark transition-colors">Approach</a>
+            <a href="#experience" class="hover:text-app-dark transition-colors">Experience</a>
+            <a href="#stories" class="hover:text-app-dark transition-colors">Stories</a>
+        </div>
+
+        <a href="#join" class="bg-app-dark text-white text-[14px] font-medium px-5 py-2 rounded-full hover:bg-stone-800 transition-colors shadow-soft">
+            Join Waitlist
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
+        
+        <!-- Blurred Background Blobs -->
+        <div class="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-app-blob1 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 animate-float-blob -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[45vw] h-[45vw] max-w-[700px] max-h-[700px] bg-app-blob2 rounded-full mix-blend-multiply filter blur-[100px] opacity-60 animate-float-blob-reverse animation-delay-2000 -z-10"></div>
+
+        <div class="text-center max-w-3xl mx-auto z-10 reveal">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-soft mb-8 text-sm text-app-muted">
+                <span class="w-2 h-2 rounded-full bg-app-coral animate-pulse"></span>
+                Public Beta opening soon
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-light text-app-dark tracking-tight leading-[1.1] mb-6 normal-case">
+                A gentler way to<br />
+                exist <span class="font-reenie text-6xl md:text-8xl text-app-coral -rotate-2 inline-block ml-2">online</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-app-muted max-w-[500px] mx-auto leading-relaxed mb-10 font-light">
+            MAU LIHAT APA
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#experience" class="w-full sm:w-auto px-8 py-4 bg-app-coral text-app-dark font-medium rounded-full shadow-soft hover:shadow-md transition-all hover:-translate-y-0.5 text-center">
+                    Start breathing
+                </a>
+                <a href="#approach" class="w-full sm:w-auto px-8 py-4 bg-white text-app-dark font-medium rounded-full border border-stone-200 shadow-sm hover:bg-stone-50 transition-all text-center">
+                    Explore features
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenario Scroll -->
+    <section id="approach" class="py-24 bg-transparent overflow-hidden">
+        <div class="pl-6 md:pl-12 lg:pl-24 mb-12 reveal">
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-app-dark mb-4">Moments of calm.</h2>
+            <p class="text-app-muted text-lg">Designed for the in-between moments of your day.</p>
+        </div>
+
+        <!-- Horizontal scroll container -->
+        <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pl-6 md:pl-12 lg:pl-24 pr-6 gap-6 pb-8 reveal" style="scroll-padding-left: max(1.5rem, calc((100vw - 1200px) / 2));">
+            
+            <!-- Card 1 -->
+            <div class="snap-start shrink-0 w-[288px] h-[160px] bg-white rounded-[24px] p-6 flex flex-col justify-between shadow-soft border border-stone-50 group transition-all hover:-translate-y-1">
+                <span class="text-[14px] text-stone-400 font-medium">08:00 AM</span>
+                <p class="text-[20px] text-stone-800 font-medium leading-tight group-hover:text-app-coral transition-colors">Morning intention setting.</p>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="snap-start shrink-0 w-[288px] h-[160px] bg-white rounded-[24px] p-6 flex flex-col justify-between shadow-soft border border-stone-50 group transition-all hover:-translate-y-1">
+                <span class="text-[14px] text-stone-400 font-medium">12:30 PM</span>
+                <p class="text-[20px] text-stone-800 font-medium leading-tight group-hover:text-app-sage transition-colors">Digital diet check-in.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="snap-start shrink-0 w-[288px] h-[160px] bg-white rounded-[24px] p-6 flex flex-col justify-between shadow-soft border border-stone-50 group transition-all hover:-translate-y-1">
+                <span class="text-[14px] text-stone-400 font-medium">03:15 PM</span>
+                <p class="text-[20px] text-stone-800 font-medium leading-tight group-hover:text-app-lavender transition-colors">Sensory grounding break.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="snap-start shrink-0 w-[288px] h-[160px] bg-white rounded-[24px] p-6 flex flex-col justify-between shadow-soft border border-stone-50 group transition-all hover:-translate-y-1">
+                <span class="text-[14px] text-stone-400 font-medium">09:00 PM</span>
+                <p class="text-[20px] text-stone-800 font-medium leading-tight group-hover:text-blue-300 transition-colors">Evening brain dump.</p>
+            </div>
+
+             <!-- Spacer for end of scroll -->
+             <div class="snap-start shrink-0 w-[24px] h-[160px]"></div>
+        </div>
+    </section>
+
+    <!-- App Experience Preview -->
+    <section id="experience" class="py-24 relative overflow-hidden">
+        <div class="text-center mb-20 px-6 reveal">
+            <h2 class="text-4xl md:text-5xl font-light tracking-tight text-app-dark mb-4">Intentionally slow.</h2>
+            <p class="text-app-muted text-lg max-w-md mx-auto">No infinite scrolls. No notification badges. Just the tools you need to reset.</p>
+        </div>
+
+        <div class="max-w-[1000px] mx-auto h-[700px] relative flex justify-center items-start reveal">
+            
+            <!-- Left Phone (Background) -->
+            <div class="absolute left-1/2 md:left-[15%] lg:left-[10%] -translate-x-[80%] md:-translate-x-0 top-[48px] w-[280px] h-[580px] bg-white rounded-[40px] shadow-float border-[8px] border-white z-10 opacity-80 overflow-hidden hidden sm:block transition-transform duration-700 hover:opacity-100 hover:z-30 hover:-translate-y-4">
+                <div class="w-full h-full bg-app-sage rounded-[32px] p-6 flex flex-col">
+                    <div class="w-1/2 h-4 bg-white/40 rounded-full mb-8"></div>
+                    <div class="space-y-4 mt-auto">
+                        <div class="w-full h-16 bg-white/60 rounded-2xl"></div>
+                        <div class="w-3/4 h-16 bg-white/60 rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Phone (Main) -->
+            <div class="absolute left-1/2 -translate-x-1/2 top-0 w-[300px] h-[620px] bg-white rounded-[44px] shadow-float border-[8px] border-white z-20 overflow-hidden flex flex-col items-center justify-center relative">
+                <div class="w-full h-full bg-[#FAFAFA] rounded-[36px] flex flex-col items-center justify-center p-8 relative">
+                    <!-- Dynamic UI element -->
+                    <div class="text-center z-10">
+                        <p class="text-app-muted text-sm mb-12">Inhale.</p>
+                        <!-- Pulsing Breathe Button -->
+                        <div class="w-32 h-32 rounded-full bg-app-coral animate-breathe flex items-center justify-center shadow-soft cursor-pointer">
+                            <span class="text-white font-medium text-lg">Hold</span>
+                        </div>
+                        <p class="text-app-muted text-sm mt-12 opacity-50">Exhale.</p>
+                    </div>
+                    
+                    <!-- decorative inner blur -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-app-coral opacity-10 rounded-full blur-2xl"></div>
+                </div>
+            </div>
+
+            <!-- Right Phone (Background) -->
+            <div class="absolute right-1/2 md:right-[15%] lg:right-[10%] translate-x-[80%] md:translate-x-0 top-[96px] w-[280px] h-[580px] bg-white rounded-[40px] shadow-float border-[8px] border-white z-0 opacity-80 overflow-hidden hidden sm:block transition-transform duration-700 hover:opacity-100 hover:z-30 hover:-translate-y-4">
+                <div class="w-full h-full bg-app-lavender rounded-[32px] p-6">
+                    <div class="flex gap-2 mb-6">
+                        <div class="w-8 h-8 rounded-full bg-white/50"></div>
+                        <div class="w-24 h-8 rounded-full bg-white/50"></div>
+                    </div>
+                    <div class="w-full h-32 bg-white/40 rounded-3xl mt-4"></div>
+                     <div class="w-full h-24 bg-white/40 rounded-3xl mt-4"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="stories" class="py-24 px-6 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+            
+            <!-- Note 1 -->
+            <div class="bg-white rounded-[2rem] p-10 shadow-soft transform rotate-1 hover:rotate-0 transition-transform duration-500 reveal border border-stone-50">
+                <svg class="w-8 h-8 text-app-coral/40 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                <p class="text-xl text-stone-700 leading-relaxed font-light mb-12">
+                    "Softly feels like finally finding a quiet room in a crowded party. The grain texture literally makes my brain calm down when I open it."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="w-8 h-[1px] bg-stone-300"></div>
+                    <span class="font-reenie text-3xl text-stone-500 mt-2">Maya T.</span>
+                </div>
+            </div>
+
+            <!-- Note 2 -->
+            <div class="bg-white rounded-[2rem] p-10 shadow-soft transform -rotate-1 hover:rotate-0 transition-transform duration-500 mt-0 md:mt-12 reveal border border-stone-50">
+                <svg class="w-8 h-8 text-app-lavender mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                <p class="text-xl text-stone-700 leading-relaxed font-light mb-12">
+                    "I used to doom-scroll before bed. Now I do a sensory check-in on Softly and actually fall asleep. It's subtle, but it works."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="w-8 h-[1px] bg-stone-300"></div>
+                    <span class="font-reenie text-3xl text-stone-500 mt-2">Julian K.</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 px-6 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-medium text-app-dark mb-10 text-center reveal">Curious minds.</h2>
+        
+        <div class="space-y-4 reveal">
+            <!-- Accordion Item 1 -->
+            <div class="bg-white rounded-[16px] border border-stone-100 overflow-hidden shadow-sm faq-item">
+                <button class="w-full text-left px-6 py-6 flex justify-between items-center bg-transparent focus:outline-none" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-1">
+                    <span class="font-medium text-app-dark text-lg">How is this different from other meditation apps?</span>
+                    <svg class="w-6 h-6 text-stone-400 transform transition-transform duration-300 icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                </button>
+                <div id="faq-1" class="accordion-content px-6 bg-white">
+                    <p class="text-app-muted pb-6 font-light">Softly isn't about rigid streaks or 30-minute sessions. It's designed for micro-moments. It acts as a gentle buffer between you and the rest of your phone.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="bg-white rounded-[16px] border border-stone-100 overflow-hidden shadow-sm faq-item">
+                <button class="w-full text-left px-6 py-6 flex justify-between items-center bg-transparent focus:outline-none" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-2">
+                    <span class="font-medium text-app-dark text-lg">Is there a subscription fee?</span>
+                    <svg class="w-6 h-6 text-stone-400 transform transition-transform duration-300 icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                </button>
+                <div id="faq-2" class="accordion-content px-6 bg-white">
+                    <p class="text-app-muted pb-6 font-light">The core digital living room experience is free forever. We will introduce optional premium textures and guided audio next year.</p>
+                </div>
+            </div>
+            
+            <!-- Accordion Item 3 -->
+            <div class="bg-white rounded-[16px] border border-stone-100 overflow-hidden shadow-sm faq-item">
+                <button class="w-full text-left px-6 py-6 flex justify-between items-center bg-transparent focus:outline-none" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-3">
+                    <span class="font-medium text-app-dark text-lg">Why the grainy texture?</span>
+                    <svg class="w-6 h-6 text-stone-400 transform transition-transform duration-300 icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                </button>
+                <div id="faq-3" class="accordion-content px-6 bg-white">
+                    <p class="text-app-muted pb-6 font-light">Digital screens often feel sterile. The subtle noise overlay mimics physical paper, providing a tactile visual cue that helps ground the nervous system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist / Conversion -->
+    <section id="join" class="relative py-32 px-6 overflow-hidden mt-12">
+        <!-- Floating Gradients -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-[800px] bg-gradient-to-b from-app-coral/20 to-transparent blur-3xl opacity-50 rounded-full"></div>
+            <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-app-sage/30 blur-3xl rounded-full"></div>
+        </div>
+
+        <div class="relative z-10 max-w-lg mx-auto text-center reveal">
+            <!-- Icon -->
+            <div class="w-16 h-16 bg-app-dark rounded-[1.25rem] mx-auto mb-8 flex items-center justify-center shadow-float rotate-3">
+                <div class="w-3 h-3 bg-app-coral rounded-full"></div>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-light text-app-dark tracking-tight mb-4">Claim your space.</h2>
+            <p class="text-lg text-app-muted mb-10 font-light">Join the waitlist. We're letting people in slowly, intentionally.</p>
+
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('In a real app, this would submit your email!');">
+                <input type="email" placeholder="your@email.com" required
+                    class="flex-1 bg-white/80 backdrop-blur-sm border border-stone-200 text-app-dark px-6 py-4 rounded-full focus:outline-none focus:border-app-coral focus:ring-1 focus:ring-app-coral transition-all placeholder:text-stone-400">
+                <button type="submit" 
+                    class="bg-app-dark text-white px-8 py-4 rounded-full font-medium hover:scale-105 hover:bg-black transition-transform duration-300 shadow-md">
+                    Join
+                </button>
+            </form>
+            <p class="text-xs text-stone-400 mt-6 font-medium tracking-wide uppercase">No spam. Just peace.</p>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center relative z-10">
+        <p class="text-sm text-stone-400 font-medium tracking-tight">© 2026 Softly Wellness. Designed for offline life.</p>
+    </footer>
+
+    <script>
+        // Reveal on Scroll Logic
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+
+        // FAQ Accordion Logic
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.icon');
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+            document.querySelectorAll('.accordion-content').forEach(el => {
+                const trigger = el.previousElementSibling;
+                if (el !== content) {
+                    el.style.maxHeight = '0px';
+                    trigger.setAttribute('aria-expanded', 'false');
+                    if (trigger.querySelector('.icon')) {
+                        trigger.querySelector('.icon').style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                button.setAttribute('aria-expanded', 'true');
+                icon.style.transform = 'rotate(45deg)';
+            } else {
+                content.style.maxHeight = '0px';
+                button.setAttribute('aria-expanded', 'false');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html>
