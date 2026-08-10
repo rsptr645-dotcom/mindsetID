@@ -2,19 +2,21 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>MindsetID — Insight Bisnis, Keuangan & Mindset</title>
 
-  <meta name="description"
-        content="MindsetID menyajikan insight bisnis, keuangan, mindset, karier, dan strategi untuk membantu kamu berkembang.">
+  <meta
+    name="description"
+    content="MindsetID menyajikan insight bisnis, keuangan, mindset, karier, dan strategi untuk membantu kamu berkembang."
+  >
 
-  <meta name="keywords"
-        content="MindsetID, bisnis, keuangan, mindset, karier, pengembangan diri">
+  <meta
+    name="keywords"
+    content="MindsetID, bisnis, keuangan, mindset, karier, pengembangan diri"
+  >
 
   <meta name="author" content="MindsetID">
-
   <meta name="theme-color" content="#ffb6bd">
 
   <style>
@@ -40,12 +42,19 @@
       color: inherit;
     }
 
+    button,
+    input {
+      font-family: inherit;
+    }
+
     .container {
       width: min(1100px, 92%);
       margin: auto;
     }
 
-    /* NAVBAR */
+    /* =========================
+       NAVBAR
+    ========================= */
 
     header {
       position: sticky;
@@ -91,7 +100,9 @@
       border-radius: 30px;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       padding: 90px 0 70px;
@@ -106,7 +117,7 @@
       border-radius: 50px;
       font-size: 13px;
       color: #777;
-      box-shadow: 0 8px 25px rgba(0,0,0,.04);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
       margin-bottom: 25px;
     }
 
@@ -146,7 +157,7 @@
       padding: 15px 25px;
       border-radius: 35px;
       font-weight: 700;
-      transition: .2s;
+      transition: 0.2s;
     }
 
     .btn-primary {
@@ -163,7 +174,9 @@
       transform: translateY(-2px);
     }
 
-    /* SEARCH */
+    /* =========================
+       SEARCH
+    ========================= */
 
     .search-box {
       margin: 20px auto 60px;
@@ -173,7 +186,7 @@
       border: 1px solid #eee;
       border-radius: 50px;
       padding: 6px;
-      box-shadow: 0 10px 35px rgba(0,0,0,.05);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
     }
 
     .search-box input {
@@ -183,6 +196,7 @@
       padding: 14px 18px;
       background: transparent;
       font-size: 15px;
+      min-width: 0;
     }
 
     .search-box button {
@@ -194,7 +208,22 @@
       cursor: pointer;
     }
 
-    /* SECTION */
+    .search-box button:hover {
+      opacity: 0.9;
+    }
+
+    .search-message {
+      max-width: 600px;
+      margin: -35px auto 40px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      display: none;
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
 
     section {
       padding: 70px 0;
@@ -205,6 +234,7 @@
       justify-content: space-between;
       align-items: end;
       margin-bottom: 28px;
+      gap: 20px;
     }
 
     .section-title h2 {
@@ -217,7 +247,9 @@
       font-size: 14px;
     }
 
-    /* CATEGORY */
+    /* =========================
+       CATEGORY
+    ========================= */
 
     .categories {
       display: grid;
@@ -230,12 +262,12 @@
       padding: 25px;
       border: 1px solid #eee;
       border-radius: 20px;
-      transition: .25s;
+      transition: 0.25s;
     }
 
     .category:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,.07);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
     }
 
     .category .icon {
@@ -253,7 +285,9 @@
       margin-top: 5px;
     }
 
-    /* ARTICLES */
+    /* =========================
+       ARTICLES
+    ========================= */
 
     .articles {
       display: grid;
@@ -266,12 +300,12 @@
       border: 1px solid #eee;
       border-radius: 22px;
       overflow: hidden;
-      transition: .25s;
+      transition: 0.25s;
     }
 
     .article:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,.07);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07);
     }
 
     .article-image {
@@ -316,7 +350,13 @@
       font-weight: 700;
     }
 
-    /* FEATURE */
+    .read:hover {
+      color: #ef8f99;
+    }
+
+    /* =========================
+       FEATURE
+    ========================= */
 
     .feature {
       background: #252428;
@@ -345,7 +385,9 @@
       white-space: nowrap;
     }
 
-    /* NEWSLETTER */
+    /* =========================
+       NEWSLETTER
+    ========================= */
 
     .newsletter {
       text-align: center;
@@ -364,7 +406,9 @@
       margin: 12px auto 25px;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       margin-top: 70px;
@@ -392,6 +436,10 @@
       color: #666;
     }
 
+    .footer-links a:hover {
+      color: #ef8f99;
+    }
+
     .copyright {
       margin-top: 30px;
       padding-top: 20px;
@@ -400,7 +448,9 @@
       font-size: 12px;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 800px) {
 
@@ -473,30 +523,46 @@
       .article-image {
         height: 170px;
       }
+
+      .search-box button {
+        padding: 0 18px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- =========================
+       NAVBAR
+  ========================== -->
 
   <header>
     <div class="container">
       <nav>
 
-        <a href="#" class="logo">
+        <a href="#top" class="logo">
           Mindset<span>ID</span>
         </a>
 
         <div class="nav-links">
-          <a href="#artikel">Artikel</a>
-          <a href="#kategori">Kategori</a>
-          <a href="#tentang">Tentang</a>
+
+          <a href="#artikel">
+            Artikel
+          </a>
+
+          <a href="#kategori">
+            Kategori
+          </a>
+
+          <a href="#tentang">
+            Tentang
+          </a>
 
           <a href="#newsletter" class="nav-button">
             Ikuti Kami
           </a>
+
         </div>
 
       </nav>
@@ -504,9 +570,11 @@
   </header>
 
 
-  <!-- HERO -->
+  <main id="top">
 
-  <main>
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <section class="hero">
 
@@ -546,7 +614,9 @@
     </section>
 
 
-    <!-- SEARCH -->
+    <!-- =========================
+         SEARCH
+    ========================== -->
 
     <div class="container">
 
@@ -556,18 +626,30 @@
           type="text"
           id="searchInput"
           placeholder="Cari artikel..."
+          aria-label="Cari artikel"
         >
 
-        <button onclick="searchArticle()">
+        <button
+          type="button"
+          onclick="searchArticle()"
+        >
           Cari
         </button>
 
       </div>
 
+      <div
+        id="searchMessage"
+        class="search-message"
+        aria-live="polite"
+      ></div>
+
     </div>
 
 
-    <!-- CATEGORY -->
+    <!-- =========================
+         CATEGORY
+    ========================== -->
 
     <section id="kategori">
 
@@ -577,18 +659,26 @@
 
           <div>
             <h2>Jelajahi topik</h2>
-            <p>Pilih topik yang ingin kamu pelajari.</p>
+
+            <p>
+              Pilih topik yang ingin kamu pelajari.
+            </p>
           </div>
 
         </div>
+
 
         <div class="categories">
 
           <a href="#artikel" class="category">
 
-            <div class="icon">💼</div>
+            <div class="icon">
+              💼
+            </div>
 
-            <h3>Bisnis</h3>
+            <h3>
+              Bisnis
+            </h3>
 
             <p>
               Strategi, kesalahan dan peluang bisnis.
@@ -599,9 +689,13 @@
 
           <a href="#artikel" class="category">
 
-            <div class="icon">💰</div>
+            <div class="icon">
+              💰
+            </div>
 
-            <h3>Keuangan</h3>
+            <h3>
+              Keuangan
+            </h3>
 
             <p>
               Cara berpikir dan mengelola uang.
@@ -612,9 +706,13 @@
 
           <a href="#artikel" class="category">
 
-            <div class="icon">🧠</div>
+            <div class="icon">
+              🧠
+            </div>
 
-            <h3>Mindset</h3>
+            <h3>
+              Mindset
+            </h3>
 
             <p>
               Cara berpikir untuk berkembang.
@@ -625,9 +723,13 @@
 
           <a href="#artikel" class="category">
 
-            <div class="icon">🚀</div>
+            <div class="icon">
+              🚀
+            </div>
 
-            <h3>Karier</h3>
+            <h3>
+              Karier
+            </h3>
 
             <p>
               Kerja, skill dan perkembangan karier.
@@ -642,7 +744,9 @@
     </section>
 
 
-    <!-- ARTICLES -->
+    <!-- =========================
+         ARTICLES
+    ========================== -->
 
     <section id="artikel">
 
@@ -651,11 +755,18 @@
         <div class="section-title">
 
           <div>
-            <h2>Artikel terbaru</h2>
-            <p>Insight yang bisa kamu baca hari ini.</p>
+
+            <h2>
+              Artikel terbaru
+            </h2>
+
+            <p>
+              Insight yang bisa kamu baca hari ini.
+            </p>
+
           </div>
 
-          <a href="#" class="read">
+          <a href="#artikel" class="read">
             Lihat semua →
           </a>
 
@@ -680,16 +791,21 @@
               </div>
 
               <h3>
-                5 Kesalahan yang Sering Dilakukan Pengusaha Pemula
+                5 Kesalahan yang Sering Dilakukan
+                Pengusaha Pemula
               </h3>
-              
-<a href="artikel/kesalahan-pengusaha-pemula.html" class="read">
-  Baca artikel →
-  </a>
+
               <p>
                 Banyak bisnis gagal bukan karena produknya buruk.
                 Ini beberapa kesalahan yang sering terjadi.
               </p>
+
+              <a
+                href="artikel/kesalahan-pengusaha-pemula.html"
+                class="read"
+              >
+                Baca artikel →
+              </a>
 
             </div>
 
@@ -711,19 +827,21 @@
               </div>
 
               <h3>
-                Kenapa Gaji Besar Belum Tentu Bikin Kaya?
+                Kenapa Gaji Besar Belum Tentu
+                Bikin Kaya?
               </h3>
- <a href="artikel/kenapa-gaji-besar-belum-tentu-bikin-kaya.html" class="read">
-    Baca artikel →
-</a>
+
               <p>
                 Pendapatan hanyalah satu bagian dari keuangan.
                 Cara mengelolanya jauh lebih penting.
               </p>
 
-   <a href="artikel/kenapa-gaji-besar-belum-tentu-bikin-kaya.html" class="read">
-    Baca artikel →
-</a>
+              <a
+                href="artikel/kenapa-gaji-besar-belum-tentu-bikin-kaya.html"
+                class="read"
+              >
+                Baca artikel →
+              </a>
 
             </div>
 
@@ -735,25 +853,31 @@
           <article class="article">
 
             <div class="article-image">
-              🧠
+              📈
             </div>
 
             <div class="article-content">
 
               <div class="tag">
-                Mindset
+                Bisnis
               </div>
 
               <h3>
-                Cara Berpikir yang Membuat Kamu Sulit Berkembang
+                5 Kebiasaan yang Membuat Bisnis
+                Sulit Berkembang
               </h3>
-<a href="artikel/5-kebiasaan-yang-membuat-bisnis-sulit-berkembang.html" class="read">
-  Baca artikel →
-</a>
+
               <p>
-                Terkadang masalahnya bukan keadaan,
-                tetapi cara kita melihat keadaan tersebut.
+                Kebiasaan kecil yang sering tidak disadari
+                dapat menjadi penghambat pertumbuhan bisnis.
               </p>
+
+              <a
+                href="artikel/5-kebiasaan-yang-membuat-bisnis-sulit-berkembang.html"
+                class="read"
+              >
+                Baca artikel →
+              </a>
 
             </div>
 
@@ -767,7 +891,9 @@
     </section>
 
 
-    <!-- FEATURE -->
+    <!-- =========================
+         TENTANG
+    ========================== -->
 
     <section id="tentang">
 
@@ -801,7 +927,9 @@
     </section>
 
 
-    <!-- NEWSLETTER -->
+    <!-- =========================
+         NEWSLETTER
+    ========================== -->
 
     <section id="newsletter">
 
@@ -824,6 +952,7 @@
             <a
               href="#"
               class="btn btn-primary"
+              onclick="comingSoon(event, 'YouTube')"
             >
               YouTube
             </a>
@@ -831,6 +960,7 @@
             <a
               href="#"
               class="btn btn-secondary"
+              onclick="comingSoon(event, 'TikTok')"
             >
               TikTok
             </a>
@@ -846,7 +976,9 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer>
 
@@ -901,121 +1033,134 @@
   </footer>
 
 
-  <!-- JAVASCRIPT -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
 
   <script>
+
+    const articles = [
+      {
+        title: "5 Kesalahan yang Sering Dilakukan Pengusaha Pemula",
+        keywords: [
+          "5 kesalahan",
+          "pengusaha",
+          "pemula",
+          "bisnis"
+        ],
+        url: "artikel/kesalahan-pengusaha-pemula.html"
+      },
+
+      {
+        title: "Kenapa Gaji Besar Belum Tentu Bikin Kaya?",
+        keywords: [
+          "gaji",
+          "gaji besar",
+          "kaya",
+          "keuangan",
+          "uang"
+        ],
+        url: "artikel/kenapa-gaji-besar-belum-tentu-bikin-kaya.html"
+      },
+
+      {
+        title: "5 Kebiasaan yang Membuat Bisnis Sulit Berkembang",
+        keywords: [
+          "kebiasaan",
+          "bisnis",
+          "sulit berkembang",
+          "berkembang"
+        ],
+        url: "artikel/5-kebiasaan-yang-membuat-bisnis-sulit-berkembang.html"
+      }
+    ];
+
 
     function searchArticle() {
 
       const input =
         document.getElementById("searchInput");
 
+      const message =
+        document.getElementById("searchMessage");
+
       const query =
         input.value.toLowerCase().trim();
 
+
       if (!query) {
 
-        alert("Ketik kata yang ingin dicari.");
+        message.textContent =
+          "Ketik kata yang ingin dicari.";
+
+        message.style.display = "block";
 
         return;
       }
 
-      const articles =
-        document.querySelectorAll(".article");
 
-      let found = false;
+      const result =
+        articles.find(article => {
 
-      articles.forEach(article => {
+          const titleMatch =
+            article.title
+              .toLowerCase()
+              .includes(query);
 
-        const text =
-          article.innerText.toLowerCase();
+          const keywordMatch =
+            article.keywords.some(keyword =>
+              keyword.includes(query) ||
+              query.includes(keyword)
+            );
 
-        if (text.includes(query)) {
+          return titleMatch || keywordMatch;
 
-          article.style.display = "block";
+        });
 
-          article.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
 
-          found = true;
+      if (result) {
 
-        } else {
+        window.location.href =
+          result.url;
 
-          article.style.display = "none";
+        return;
+      }
+
+
+      message.textContent =
+        "Artikel belum ditemukan. Coba kata kunci lain.";
+
+      message.style.display =
+        "block";
+
+    }
+
+
+    document
+      .getElementById("searchInput")
+      .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+
+          searchArticle();
 
         }
 
       });
 
-      if (!found) {
 
-        alert(
-          "Artikel dengan kata '" +
-          query +
-          "' belum ditemukan."
-        );
+    function comingSoon(event, platform) {
 
-        articles.forEach(article => {
-          article.style.display = "block";
-        });
+      event.preventDefault();
 
-      }
+      alert(
+        platform +
+        " MindsetID akan segera tersedia."
+      );
 
     }
 
   </script>
-</footer>
 
-<script>
-const searchInput = document.querySelector('input[type="search"]');
-const searchButton = document.querySelector('.search button');
-
-if (searchInput && searchButton) {
-  searchButton.addEventListener('click', function () {
-    const keyword = searchInput.value.toLowerCase().trim();
-
-    const articles = [
-      {
-        title: '5 Kesalahan yang Sering Dilakukan Pengusaha Pemula',
-        url: 'artikel/kesalahan-pengusaha-pemula.html'
-      },
-      {
-        title: 'Kenapa Gaji Besar Belum Tentu Bikin Kaya?',
-        url: 'artikel/kenapa-gaji-besar-belum-tentu-bikin-kaya.html'
-      },
-      {
-        title: '5 Kebiasaan yang Membuat Bisnis Sulit Berkembang',
-        url: 'artikel/5-kebiasaan-yang-membuat-bisnis-sulit-berkembang.html'
-      }
-    ];
-
-    const result = articles.find(article =>
-      article.title.toLowerCase().includes(keyword)
-    );
-
-    if (!keyword) {
-      alert('Silakan masukkan kata yang ingin dicari.');
-      return;
-    }
-
-    if (result) {
-      window.location.href = result.url;
-    } else {
-      alert('Artikel tidak ditemukan. Coba kata kunci lain.');
-    }
-  });
-
-  searchInput.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
-      searchButton.click();
-    }
-  });
-}
-</script>
-
-</body>
-</html>
 </body>
 </html>
