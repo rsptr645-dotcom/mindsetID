@@ -966,6 +966,56 @@
     }
 
   </script>
+</footer>
 
+<script>
+const searchInput = document.querySelector('input[type="search"]');
+const searchButton = document.querySelector('.search button');
+
+if (searchInput && searchButton) {
+  searchButton.addEventListener('click', function () {
+    const keyword = searchInput.value.toLowerCase().trim();
+
+    const articles = [
+      {
+        title: '5 Kesalahan yang Sering Dilakukan Pengusaha Pemula',
+        url: 'artikel/kesalahan-pengusaha-pemula.html'
+      },
+      {
+        title: 'Kenapa Gaji Besar Belum Tentu Bikin Kaya?',
+        url: 'artikel/kenapa-gaji-besar-belum-tentu-bikin-kaya.html'
+      },
+      {
+        title: '5 Kebiasaan yang Membuat Bisnis Sulit Berkembang',
+        url: 'artikel/5-kebiasaan-yang-membuat-bisnis-sulit-berkembang.html'
+      }
+    ];
+
+    const result = articles.find(article =>
+      article.title.toLowerCase().includes(keyword)
+    );
+
+    if (!keyword) {
+      alert('Silakan masukkan kata yang ingin dicari.');
+      return;
+    }
+
+    if (result) {
+      window.location.href = result.url;
+    } else {
+      alert('Artikel tidak ditemukan. Coba kata kunci lain.');
+    }
+  });
+
+  searchInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      searchButton.click();
+    }
+  });
+}
+</script>
+
+</body>
+</html>
 </body>
 </html>
