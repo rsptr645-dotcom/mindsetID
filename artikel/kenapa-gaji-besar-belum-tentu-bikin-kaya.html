@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kenapa Gaji Besar Belum Tentu Bikin Kaya? | MindsetID</title>
+
+  <meta name="description"
+    content="Gaji besar belum tentu membuat seseorang kaya. Pelajari cara mengelola penghasilan, pengeluaran, dan aset agar kondisi keuangan semakin sehat.">
+
+  <meta name="keywords"
+    content="gaji besar, keuangan, cara mengelola uang, kaya, finansial, MindsetID">
+
+  <meta name="author" content="MindsetID">
+  <meta name="theme-color" content="#f6a3ab">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fffdfb;
+      color: #252428;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(900px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 253, 251, .95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #f49ba5;
+    }
+
+    .back-button {
+      background: #252428;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .article-header {
+      text-align: center;
+      padding: 75px 0 35px;
+    }
+
+    .category {
+      display: inline-block;
+      background: #fff0f1;
+      color: #e98892;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 25px auto 0;
+      color: #777;
+      font-size: 17px;
+    }
+
+    .meta {
+      margin-top: 20px;
+      color: #999;
+      font-size: 13px;
+    }
+
+    .cover {
+      height: 330px;
+      margin: 25px 0 50px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #ffe0e4, #fff4f4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 90px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.06);
+    }
+
+    .article-content {
+      max-width: 760px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    .article-content p {
+      margin-bottom: 24px;
+      color: #4c4b4d;
+    }
+
+    .article-content h2 {
+      font-size: 31px;
+      line-height: 1.25;
+      margin: 50px 0 18px;
+      letter-spacing: -1px;
+    }
+
+    .number {
+      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      background: #f6a3ab;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-weight: 800;
+    }
+
+    .tip {
+      background: #fff1f2;
+      border-left: 4px solid #f49ba5;
+      padding: 20px 22px;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .tip strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .conclusion {
+      margin-top: 50px;
+      padding: 35px;
+      border-radius: 25px;
+      background: #252428;
+      color: white;
+    }
+
+    .conclusion h2 {
+      margin-top: 0;
+      font-size: 29px;
+    }
+
+    .conclusion p {
+      color: #dddddd;
+      margin-bottom: 0;
+    }
+
+    .cta {
+      margin: 60px 0;
+      padding: 40px 30px;
+      text-align: center;
+      background: #fff0f1;
+      border-radius: 25px;
+    }
+
+    .cta h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #252428;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #eeeeee;
+      padding: 35px 0;
+      margin-top: 30px;
+      text-align: center;
+      color: #999;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        height: 62px;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .back-button {
+        padding: 9px 14px;
+        font-size: 12px;
+      }
+
+      .article-header {
+        padding: 55px 0 25px;
+      }
+
+      h1 {
+        font-size: 39px;
+        letter-spacing: -1.5px;
+      }
+
+      .intro {
+        font-size: 15px;
+      }
+
+      .cover {
+        height: 220px;
+        font-size: 65px;
+        border-radius: 22px;
+        margin-bottom: 35px;
+      }
+
+      .article-content {
+        font-size: 16px;
+      }
+
+      .article-content h2 {
+        font-size: 27px;
+      }
+
+      .conclusion {
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../index.html" class="logo">
+          Mindset<span>ID</span>
+        </a>
+
+        <a href="../index.html" class="back-button">
+          ← Beranda
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <div class="container">
+
+        <header class="article-header">
+
+          <div class="category">
+            KEUANGAN
+          </div>
+
+          <h1>
+            Kenapa Gaji Besar Belum Tentu Bikin Kaya?
+          </h1>
+
+          <p class="intro">
+            Penghasilan yang besar memang memberikan lebih banyak pilihan.
+            Tetapi tanpa pengelolaan yang baik, gaji besar juga bisa habis
+            tanpa membangun kondisi keuangan yang kuat.
+          </p>
+
+          <div class="meta">
+            MindsetID · 10 Agustus 2026 · 6 menit membaca
+          </div>
+
+        </header>
+
+        <div class="cover">
+          💰
+        </div>
+
+        <div class="article-content">
+
+          <p>
+            Banyak orang berpikir bahwa semakin besar gaji seseorang,
+            semakin kaya pula kehidupannya.
+          </p>
+
+          <p>
+            Kenyataannya tidak selalu demikian. Ada orang dengan
+            penghasilan besar yang tetap merasa kekurangan setiap bulan,
+            sementara ada orang dengan penghasilan lebih sederhana yang
+            mampu membangun tabungan dan aset secara konsisten.
+          </p>
+
+          <p>
+            Perbedaannya bukan hanya pada jumlah penghasilan,
+            tetapi juga pada bagaimana uang tersebut digunakan.
+          </p>
+
+          <h2>
+            <span class="number">1</span>
+            Gaya Hidup Bisa Naik Bersama Gaji
+          </h2>
+
+          <p>
+            Ketika penghasilan meningkat, biasanya keinginan untuk
+            meningkatkan gaya hidup juga ikut meningkat.
+          </p>
+
+          <p>
+            Rumah yang lebih besar, kendaraan yang lebih mahal,
+            lebih sering makan di luar, hingga berbagai layanan
+            berlangganan bisa membuat pengeluaran tumbuh lebih cepat
+            daripada penghasilan.
+          </p>
+
+          <div class="tip">
+            <strong>💡 Yang bisa dilakukan:</strong>
+            Ketika penghasilan naik, jangan langsung menaikkan semua
+            pengeluaran. Sisihkan sebagian kenaikan penghasilan untuk
+            tabungan dan aset.
+          </div>
+
+          <h2>
+            <span class="number">2</span>
+            Gaji Besar Tidak Sama dengan Kekayaan
+          </h2>
+
+          <p>
+            Gaji adalah penghasilan. Kekayaan adalah sesuatu yang
+            kamu miliki setelah memperhitungkan aset dan kewajiban.
+          </p>
+
+          <p>
+            Seseorang bisa mendapatkan penghasilan besar tetapi
+            memiliki utang konsumtif yang besar pula.
+          </p>
+
+          <p>
+            Sebaliknya, seseorang dengan penghasilan lebih sederhana
+            bisa memiliki kondisi keuangan yang lebih kuat jika
+            mampu menyimpan sebagian penghasilannya dan membangun aset.
+          </p>
+
+          <h2>
+            <span class="number">3</span>
+            Tidak Memiliki Dana Darurat
+          </h2>
+
+          <p>
+            Penghasilan besar tidak membuat seseorang kebal terhadap
+            kejadian tidak terduga.
+          </p>
+
+          <p>
+            Kehilangan pekerjaan, kebutuhan keluarga, perbaikan kendaraan,
+            atau pengeluaran mendadak dapat mengganggu kondisi keuangan
+            jika seluruh penghasilan selalu habis setiap bulan.
+          </p>
+
+          <div class="tip">
+            <strong>💡 Yang bisa dilakukan:</strong>
+            Bangun dana darurat secara bertahap dan simpan di tempat
+            yang mudah diakses ketika benar-benar dibutuhkan.
+          </div>
+
+          <h2>
+            <span class="number">4</span>
+            Terlalu Banyak Membeli untuk Terlihat Berhasil
+          </h2>
+
+          <p>
+            Tekanan sosial sering membuat seseorang merasa harus
+            menunjukkan keberhasilan melalui barang yang dimiliki.
+          </p>
+
+          <p>
+            Padahal, kondisi finansial yang sehat tidak selalu terlihat
+            dari luar.
+          </p>
+
+          <p>
+            Memiliki tabungan, investasi, dana darurat, dan utang yang
+            terkendali mungkin tidak terlihat menarik di media sosial,
+            tetapi semuanya dapat memberikan fondasi yang lebih kuat.
+          </p>
+
+          <h2>
+            <span class="number">5</span>
+            Tidak Memiliki Tujuan Keuangan
+          </h2>
+
+          <p>
+            Uang yang tidak memiliki tujuan biasanya lebih mudah
+            digunakan untuk hal-hal yang tidak terlalu penting.
+          </p>
+
+          <p>
+            Menentukan tujuan keuangan membantu seseorang mengetahui
+            untuk apa uang tersebut disimpan dan berapa banyak yang
+            perlu disiapkan.
+          </p>
+
+          <div class="tip">
+            <strong>💡 Yang bisa dilakukan:</strong>
+            Buat tujuan keuangan yang jelas, misalnya dana darurat,
+            rumah, pendidikan, modal bisnis, atau persiapan masa depan.
+          </div>
+
+          <div class="conclusion">
+
+            <h2>
+              Kesimpulannya
+            </h2>
+
+            <p>
+              Gaji besar adalah kesempatan, bukan jaminan kekayaan.
+              Yang menentukan adalah bagaimana penghasilan tersebut
+              dikelola dan diarahkan.
+            </p>
+
+            <p>
+              Jangan hanya berusaha meningkatkan jumlah uang yang masuk.
+              Belajar juga mengendalikan pengeluaran, membangun tabungan,
+              mengurangi utang yang tidak perlu, dan membangun aset.
+            </p>
+
+          </div>
+
+          <div class="cta">
+
+            <h2>
+              Mau belajar lebih banyak?
+            </h2>
+
+            <p>
+              Temukan insight bisnis, keuangan, mindset,
+              dan karier lainnya di MindsetID.
+            </p>
+
+            <a href="../index.html" class="cta-button">
+              Jelajahi MindsetID →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+
+    <div class="container">
+      © 2026 MindsetID · Insight untuk berpikir lebih jauh.
+    </div>
+
+  </footer>
+
+</body>
+</html>
